@@ -1,0 +1,36 @@
+{
+  "name": "zoomclone",
+  "version": "1.0.0",
+  "description": "[React](https://reactjs.org/) is a popular JavaScript library for building user interfaces.",
+  "main": "eslint.config.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@elastic/datemath": "^5.0.3",
+    "@elastic/eui": "^97.2.0",
+    "@emotion/css": "^11.13.4",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@reduxjs/toolkit": "^2.3.0",
+    "firebase": "^11.0.1",
+    "localforage": "^1.10.0",
+    "match-sorter": "^7.0.0",
+    "moment": "^2.30.1",
+    "react-router-dom": "^6.27.0",
+    "redux": "^5.0.1",
+    "sort-by": "^0.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.3",
+    "vite": "^5.4.10",
+    "vite-plugin-svgr": "^4.2.0"
+  }
+}
