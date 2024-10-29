@@ -24,3 +24,4 @@ export const firebaseAuth = getAuth(app);
 export const firebaseDB = getFirestore(app);
 // Firestore 컬렉션 참조 추가
 export const userRef = collection(firebaseDB, "users"); // 'users' 컬렉션 참조
+export const meetingRef = collection(firebaseDB, "meetings");

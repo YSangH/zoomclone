@@ -10,18 +10,21 @@ function UserField({
   singleSelection = false,
   isClearable,
   placeholder,
+  isInvalid,
+  error,
 }: {
   label: string;
-  // isInvalid: boolean;
   options: any;
   onChange: any;
   selectedOptions: any;
   singleSelection?: { asPlainText: boolean } | boolean;
   isClearable: boolean;
   placeholder: string;
+  isInvalid: boolean;
+  error: Array<string>;
 }) {
   return (
-    <EuiFormRow label={label}>
+    <EuiFormRow label={label} isInvalid={isInvalid} error={error}>
       <EuiComboBox
         options={options}
         onChange={onChange}
@@ -29,12 +32,7 @@ function UserField({
         singleSelection={singleSelection}
         isClearable={isClearable}
         placeholder={placeholder}
-        renderOption={(option) => (
-          <div>
-            <EuiIcon type="arrowDown" />
-            {option.label}
-          </div>
-          )}
+        isInvalid={isInvalid}
       />
     </EuiFormRow>
   );

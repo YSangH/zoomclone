@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { EuiProvider, EuiThemeProvider } from "@elastic/eui";
+import { EuiGlobalToastList, EuiProvider, EuiThemeProvider } from "@elastic/eui";
 import "@elastic/eui/dist/eui_theme_light.json";
 import "@elastic/eui/dist/eui_theme_dark.json";
 import { useAppDispatch, useAppSelector } from "./app/hooks"; // 커스텀 훅 사용
@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import CreateMeeting from "./pages/CreateMeeting";
 import SingleMeeting from "./pages/SingleMeeting";
+import { setToasts } from "./app/slices/MeetingSlice";
 
 // 리덕스 상태의 타입을 명시해야 합니다.
 interface RootState {
@@ -16,8 +17,9 @@ interface RootState {
   };
 }
 
-const App: React.FC = () => {
+function App(){
   const dispatch = useAppDispatch(); // dispatch 호출
+  const toasts = useAppSelector((zoom) => zoom.meeting.toasts);
   const isDarkTheme = useAppSelector((state: RootState) => state.auth.isDarkTheme); // redux 상태 가져오기
   const [theme, setTheme] = useState<"light" | "dark">("light"); // 테마 타입 명시
 
@@ -38,6 +40,12 @@ const App: React.FC = () => {
       dark: { primary: "#0b5cff" },
     },
   };
+  const removeToast = (removeToast: {id: string}) => {
+    dispatch(setToasts(
+      toasts.filter((toast: { id: string }) => toast.id == removeToast.id)
+    )
+    );
+  }
 
   return (
     <EuiProvider>
@@ -49,6 +57,11 @@ const App: React.FC = () => {
           <Route path="/" element={<Dashboard />} />
           <Route path="*" element={<Dashboard />} />
         </Routes>
+        <EuiGlobalToastList
+          toasts={toasts}
+          dismissToast={removeToast}
+          toastLifeTimeMs={5000}
+        />
       </EuiThemeProvider>
     </EuiProvider>
   );

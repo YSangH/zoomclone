@@ -8,6 +8,13 @@ import { EuiFlexGroup, EuiForm, EuiSpacer} from "@elastic/eui";
 import useAuth from "../hooks/UseAuth";
 import useFetchUsers from "../hooks/UseFetchUsers";
 import moment from "moment";
+import MeetingButton from "../components/form/MeetingButton";
+import { FieldErrorType, UserType } from "../utils/Types";
+import { addDoc } from "firebase/firestore";
+import { meetingRef } from "../utils/FirebaseConfig";
+import { generateMeetingId } from "../utils/generateMeetingId";
+import { useAppSelector } from "../app/hooks";
+import { useNavigate } from "react-router-dom";
 
 // Elastic UI 아이콘 불러오기
 import { appendIconComponentCache } from '@elastic/eui/es/components/icon/icon';
@@ -15,8 +22,8 @@ import { icon as EuiIconArrowDown } from '@elastic/eui/es/components/icon/assets
 import { icon as EuiIconCalendar} from '@elastic/eui/es/components/icon/assets/calendar';
 import { icon as EuiIconSortLeft} from '@elastic/eui/es/components/icon/assets/sortLeft';
 import { icon as EuiIconSortRight} from '@elastic/eui/es/components/icon/assets/sortRight';
-import MeetingButton from "../components/form/MeetingButton";
-import { FieldErrorType } from "../utils/Types";
+import { Navigate } from "react-router-dom";
+import UseToast from "../hooks/UseToast";
 
 // Elastic UI 아이콘 적용
 appendIconComponentCache({
@@ -29,8 +36,12 @@ appendIconComponentCache({
 function SingleMeeting() {
   useAuth();
   const [users] = useFetchUsers();
+  const [createToast] = UseToast();
+  const navigate = useNavigate();
+
+  const uid = useAppSelector((zoom) => zoom.auth.userInfo?.uid);
   const [meetingName, setMeetingName] = useState("");
-  const [selectedUsers, setSelectedUsers] = useState([]);
+  const [selectedUsers, setSelectedUsers] = useState<Array<UserType>>([]);
   const [startDate, setStartDate] = useState(moment());
   const [showError, setShowError] = useState<{
     meetingName: FieldErrorType;
@@ -73,8 +84,24 @@ function SingleMeeting() {
     return errors;
   };
   
-  const createMeeting = () => {
+  const createMeeting = async () => {
     if (!validateForm()) {
+      const meetingId = generateMeetingId();
+      await addDoc(meetingRef, {
+        createdBy: uid,
+        meetingId,
+        meetingName,
+        meetingType: "1-by-1",
+        invitedUsers: [selectedUsers[0].uid],
+        meetingDate: startDate.format("L"),
+        maxUsers: 1,
+        status: true,
+      });
+      createToast({
+        title: "One by One Meeting Created Successfully",
+        type: "Success",
+      })
+      navigate("/");
     }
   };
 
@@ -105,6 +132,8 @@ function SingleMeeting() {
             singleSelection={{ asPlainText: true }}
             isClearable={false}
             placeholder="Select a user"
+            isInvalid={showError.meetingUser.show}
+            error={showError.meetingUser.message}
           />
           <DateField selected={startDate} setStartDate={setStartDate} />
         <EuiSpacer />
