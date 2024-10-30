@@ -4,11 +4,14 @@ import { EuiGlobalToastList, EuiProvider, EuiThemeProvider } from "@elastic/eui"
 import "@elastic/eui/dist/eui_theme_light.json";
 import "@elastic/eui/dist/eui_theme_dark.json";
 import { useAppDispatch, useAppSelector } from "./app/hooks"; // 커스텀 훅 사용
+import { setToasts } from "./app/slices/MeetingSlice";
+
+// 페이지 컴포넌트 
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import CreateMeeting from "./pages/CreateMeeting";
 import SingleMeeting from "./pages/SingleMeeting";
-import { setToasts } from "./app/slices/MeetingSlice";
+import VideoConference from "./pages/VideoConference";
 
 // 리덕스 상태의 타입을 명시해야 합니다.
 interface RootState {
@@ -53,7 +56,8 @@ function App(){
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/create" element={<CreateMeeting />} />
-          <Route path="/single" element={<SingleMeeting />} />
+          <Route path="/1by1" element={<SingleMeeting />} />
+          <Route path="/videoconference" element={<VideoConference />} />
           <Route path="/" element={<Dashboard />} />
           <Route path="*" element={<Dashboard />} />
         </Routes>

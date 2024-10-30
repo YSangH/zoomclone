@@ -15,7 +15,7 @@ import lock from "../assets/lock.svg";
 import sun from "../assets/sun.svg";
 import moon from "../assets/moon.svg";
 import { changeTheme } from "../app/slices/AuthSlice";
-import { getCreateMeetingBreadCrumbs } from "../utils/BreadCrumbs";
+import { getCreateMeetingBreadCrumbs, getOneByOneMeetingBreadCrumbs, getVideoConferenceBreadCrumbs } from "../utils/BreadCrumbs";
 import { firebaseAuth } from "../utils/FirebaseConfig";
 
 function Header() {
@@ -35,6 +35,10 @@ function Header() {
     const { pathname } = location;
     if (pathname === "/create")
       setBreadCrumbs(getCreateMeetingBreadCrumbs(navigate));
+    else if (pathname === "/1by1")
+      setBreadCrumbs(getOneByOneMeetingBreadCrumbs(navigate));
+    else if (pathname === "/videoconference")
+      setBreadCrumbs(getVideoConferenceBreadCrumbs(navigate));
   }, [location, navigate]);
 
   // 테마 라이트 다크모드 전환

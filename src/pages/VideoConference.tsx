@@ -3,19 +3,20 @@ import Header from "../components/Header";
 import NameField from "../components/form/NameField";
 import UserField from "../components/form/UserField";
 import DateField from "../components/form/DateField";
-
-import { EuiFlexGroup, EuiForm, EuiSpacer} from "@elastic/eui";
-import useAuth from "../hooks/UseAuth";
-import useFetchUsers from "../hooks/UseFetchUsers";
-import moment from "moment";
 import MeetingButton from "../components/form/MeetingButton";
+
+import { EuiFlexGroup, EuiForm, EuiFormRow, EuiSpacer, EuiSwitch } from "@elastic/eui";
 import { FieldErrorType, UserType } from "../utils/Types";
-import { addDoc } from "firebase/firestore";
 import { meetingRef } from "../utils/FirebaseConfig";
 import { generateMeetingId } from "../utils/generateMeetingId";
+import { addDoc } from "firebase/firestore";
+import moment from "moment";
+
+import useAuth from "../hooks/UseAuth";
+import useFetchUsers from "../hooks/UseFetchUsers";
 import { useAppSelector } from "../app/hooks";
 import { useNavigate } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import UseToast from "../hooks/UseToast";
 
 // Elastic UI 아이콘 불러오기
 import { appendIconComponentCache } from '@elastic/eui/es/components/icon/icon';
@@ -23,7 +24,8 @@ import { icon as EuiIconArrowDown } from '@elastic/eui/es/components/icon/assets
 import { icon as EuiIconCalendar} from '@elastic/eui/es/components/icon/assets/calendar';
 import { icon as EuiIconSortLeft} from '@elastic/eui/es/components/icon/assets/sortLeft';
 import { icon as EuiIconSortRight} from '@elastic/eui/es/components/icon/assets/sortRight';
-import UseToast from "../hooks/UseToast";
+import { Navigate } from "react-router-dom";
+import MeetingMaximum from "../components/form/MeetingMaximum";
 
 // Elastic UI 아이콘 적용
 appendIconComponentCache({
@@ -33,20 +35,23 @@ appendIconComponentCache({
   sortRight: EuiIconSortRight,
 });
 
-function SingleMeeting() {
+function VideoConference() {
   useAuth();
-  const [users] = useFetchUsers();
-  const [createToast] = UseToast();
-  const navigate = useNavigate();
-
-  const uid = useAppSelector((zoom) => zoom.auth.userInfo?.uid);
-  const [meetingName, setMeetingName] = useState("");
-  const [selectedUsers, setSelectedUsers] = useState<Array<UserType>>([]);
-  const [startDate, setStartDate] = useState(moment());
-  const [showError, setShowError] = useState<{
+    const [users] = useFetchUsers();
+    const [createToast] = UseToast();
+    const navigate = useNavigate(); 
+    const uid = useAppSelector((zoom) => zoom.auth.userInfo?.uid);
+    const [meetingName, setMeetingName] = useState("");
+    const [selectedUsers, setSelectedUsers] = useState<Array<UserType>>([]);
+    const [startDate, setStartDate] = useState(moment());
+    const [size, setSize] = useState(1);
+    const [anyJoin, setAnyJoin] = useState(false);
+    const [showError, setShowError] = useState<{
     meetingName: FieldErrorType;
     meetingUser: FieldErrorType;
-  }>({
+    }>
+    
+    ({
     meetingName: {
       show: false,
       message: [],
@@ -55,7 +60,7 @@ function SingleMeeting() {
       show: false,
       message: [],
     }
-  });
+    });
 
   const onUserChange = (selectedOptions: any) => {
     setSelectedUsers(selectedOptions);
@@ -91,14 +96,14 @@ function SingleMeeting() {
         createdBy: uid,
         meetingId,
         meetingName,
-        meetingType: "1-by-1",
-        invitedUsers: [selectedUsers[0].uid],
+        meetingType: anyJoin ? "anyone-can-join" : "video-conference",
+        invitedUsers: anyJoin ? [] : selectedUsers.map((user: UserType) => user.uid),
         meetingDate: startDate.format("L"),
-        maxUsers: 1,
+        maxUsers: anyJoin ? 100 : size,
         status: true,
       });
       createToast({
-        title: "One by One Meeting Created Successfully",
+        title: anyJoin? "Anyone can join meeting created successfully" : "Video Conference created successfully",
         type: "Success",
       })
       navigate("/");
@@ -115,26 +120,40 @@ function SingleMeeting() {
     >
       <Header />
       <EuiFlexGroup justifyContent="center" alignItems="center">
-        <EuiForm>
-          <NameField
-            label="Meeting Name"
-            placeholder="Meeting Name" 
-            value={meetingName}
-            setMeetingName={setMeetingName}
-            isInvalid={showError.meetingName.show}
-            error={showError.meetingName.message}
-          />
-          <UserField
+              <EuiForm>
+                  <EuiFormRow display="columnCompressedSwitch" label="Anyone can Join">
+                      <EuiSwitch
+                          showLabel={false}
+                          label="Anyone can Join"
+                          checked={anyJoin}
+                          onChange={(e) => setAnyJoin(e.target.checked)}
+                          compressed
+                      />
+                  </EuiFormRow>
+                  <EuiSpacer />
+            {anyJoin ? (
+            <MeetingMaximum value={size} setValue={setSize} />
+            ) : (
+                <NameField
+                label="Meeting Name"
+                placeholder="Meeting Name" 
+                value={meetingName}
+                setMeetingName={setMeetingName}
+                isInvalid={showError.meetingName.show}
+                error={showError.meetingName.message}
+                />
+            )}
+            <UserField
             label="Invite User"
             options={users}
             onChange={onUserChange}
             selectedOptions={selectedUsers}
-            singleSelection={{ asPlainText: true }}
+            singleSelection={false}
             isClearable={false}
             placeholder="Select a user"
             isInvalid={showError.meetingUser.show}
             error={showError.meetingUser.message}
-          />
+            />
           <DateField selected={startDate} setStartDate={setStartDate} />
         <EuiSpacer />
         <MeetingButton createMeeting={createMeeting}/>
@@ -143,4 +162,4 @@ function SingleMeeting() {
     </div>
   );
 }
-export default SingleMeeting;
+export default VideoConference;

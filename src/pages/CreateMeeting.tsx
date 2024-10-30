@@ -27,9 +27,9 @@ function CreateMeeting() {
         <EuiFlexItem>
           <EuiCard
             icon={<EuiImage size="5rem" alt="icon" src={meeting1} />}
-            title={"Create 1 on 1 Meeting"}
+            title={"Create 1 by 1 Meeting"}
             description="Create a personal single person meeting "
-            onClick={() => navigate("/single")}
+            onClick={() => navigate("/1by1")}
             paddingSize="xl"
           />
         </EuiFlexItem>
