@@ -59,3 +59,18 @@ export const getOneByOneMeetingBreadCrumbs = (
     text: "videoconference",
   },
 ];
+
+export const getMymeetingsBreadCrumbs = (
+  navigate: NavigateFunction,
+): Array<BreadCrumbType> => [
+    {
+      text: "Dashboard",
+      href: "#",
+      onClick: () => {
+        navigate("/");
+      },
+    },
+  {
+    text: "MyMeetings",
+  },
+];

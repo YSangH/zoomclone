@@ -21,3 +21,18 @@ export interface ToastType {
   title: string;
   color: "success" | "primary" | "warning" | "danger" | undefined;
 }
+
+
+export type MeetingJoinType = "anyone-can-join" | "video-conference" | "1 by 1";
+
+export interface MeetingType{
+  docId?: string;
+  createdBy: string;
+  invateUsers: Array<string>;
+  maxUsers: number;
+  meetingDate: string;
+  meetingId: string;
+  meetingName: string;
+  meetingType: MeetingJoinType;
+  status: boolean;
+}
