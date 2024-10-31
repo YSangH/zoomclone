@@ -17,6 +17,7 @@ import useFetchUsers from "../hooks/UseFetchUsers";
 import { useAppSelector } from "../app/hooks";
 import { useNavigate } from "react-router-dom";
 import UseToast from "../hooks/UseToast";
+import MeetingMaximum from "../components/form/MeetingMaximum";
 
 // Elastic UI 아이콘 불러오기
 import { appendIconComponentCache } from '@elastic/eui/es/components/icon/icon';
@@ -24,8 +25,6 @@ import { icon as EuiIconArrowDown } from '@elastic/eui/es/components/icon/assets
 import { icon as EuiIconCalendar} from '@elastic/eui/es/components/icon/assets/calendar';
 import { icon as EuiIconSortLeft} from '@elastic/eui/es/components/icon/assets/sortLeft';
 import { icon as EuiIconSortRight} from '@elastic/eui/es/components/icon/assets/sortRight';
-import { Navigate } from "react-router-dom";
-import MeetingMaximum from "../components/form/MeetingMaximum";
 
 // Elastic UI 아이콘 적용
 appendIconComponentCache({

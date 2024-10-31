@@ -23,7 +23,7 @@ export interface ToastType {
 }
 
 
-export type MeetingJoinType = "anyone-can-join" | "video-conference" | "1 by 1";
+export type MeetingJoinType = "anyone-can-join" | "video-conference" | "1-by-1";
 
 export interface MeetingType{
   docId?: string;
