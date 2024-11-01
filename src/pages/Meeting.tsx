@@ -26,7 +26,7 @@ function Meeting() {
         if (userInfo) {
             const getUserMeetings = async () => {
                 const firestoreQuery = query(meetingRef);
-                const fetchedMeetings = await getDocs(firestoreQuery)
+                const fetchedMeetings = await getDocs(firestoreQuery);
                 if (fetchedMeetings.docs.length) {
                     const myMeetings: Array<MeetingType> = []
                     fetchedMeetings.forEach((meeting) => {
