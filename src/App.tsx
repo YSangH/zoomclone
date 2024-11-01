@@ -13,6 +13,8 @@ import CreateMeeting from "./pages/CreateMeeting";
 import SingleMeeting from "./pages/SingleMeeting";
 import VideoConference from "./pages/VideoConference";
 import MyMeetings from "./pages/MyMeetings";
+import Meeting from "./pages/Meeting";
+import JoinMeeting from "./pages/JoinMeeting";
 
 // 리덕스 상태의 타입을 명시해야 합니다.
 interface RootState {
@@ -60,6 +62,8 @@ function App(){
           <Route path="/1by1" element={<SingleMeeting />} />
           <Route path="/videoconference" element={<VideoConference />} />
           <Route path="/mymeetings" element={<MyMeetings />} />
+          <Route path="/meeting" element={<Meeting />} />
+          <Route path="/join/:id" element={<JoinMeeting />} />
           <Route path="/" element={<Dashboard />} />
           <Route path="*" element={<Dashboard />} />
         </Routes>

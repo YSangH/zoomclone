@@ -73,4 +73,19 @@ export const getMymeetingsBreadCrumbs = (
   {
     text: "MyMeetings",
   },
+  ];
+
+  export const getMeetingsBreadCrumbs = (
+  navigate: NavigateFunction,
+): Array<BreadCrumbType> => [
+    {
+      text: "Dashboard",
+      href: "#",
+      onClick: () => {
+        navigate("/");
+      },
+    },
+  {
+    text: "Meeting",
+  },
 ];
