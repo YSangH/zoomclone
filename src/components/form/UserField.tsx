@@ -3,7 +3,6 @@ import React from "react";
 
 function UserField({
   label,
-  // isInvalid,
   options,
   onChange,
   selectedOptions,

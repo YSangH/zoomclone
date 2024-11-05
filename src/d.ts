@@ -19,4 +19,5 @@
   declare module '@elastic/eui/es/components/icon/assets/arrow_down';
   declare module '@elastic/eui/es/components/icon/assets/sortLeft';
   declare module '@elastic/eui/es/components/icon/assets/sortRight';
+  declare module '@elastic/eui/es/components/icon/assets/warning';
   declare module '@elastic/eui/es/components/icon/icon';
