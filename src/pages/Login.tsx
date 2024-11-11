@@ -5,6 +5,7 @@ import {
   EuiFlexGroup,
   EuiFlexItem,
   EuiImage,
+  EuiPanel,
   EuiSpacer,
   EuiText,
   EuiTextColor,
@@ -66,6 +67,9 @@ const Login: React.FC = () => {
         justifyContent="center"
         style={{ width: "100vw", height: "100vh" }}
       >
+        <EuiFlexItem grow={false}>
+          <EuiPanel paddingSize="xl">
+            <EuiFlexGroup justifyContent="center" alignItems="center">
         {/* 왼쪽 애니메이션 이미지 */}
         <EuiFlexItem>
           <EuiImage src={animation} alt="animation" />
@@ -77,14 +81,17 @@ const Login: React.FC = () => {
           <EuiSpacer size="xs" />
           <EuiText textAlign="center" grow={false}>
             <h3>
-              <EuiTextColor>One Platform to</EuiTextColor>{" "}
-              <EuiTextColor color="#0b5cff">connect</EuiTextColor>
+              <EuiTextColor>One Platform to</EuiTextColor>
+              <EuiTextColor color="#0b5cff"> connect</EuiTextColor>
             </h3>
           </EuiText>
           <EuiSpacer size="l" />
           <EuiButton fill onClick={login}>
             Login with Google
           </EuiButton>
+              </EuiFlexItem>
+              </EuiFlexGroup>
+          </EuiPanel>
         </EuiFlexItem>
       </EuiFlexGroup>
     </EuiProvider>
