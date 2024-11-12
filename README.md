@@ -59,48 +59,48 @@ $ npm run dev
 
 src
 ├── app	 - 재사용 가능한 컴포넌트
-│       ├── slices
-│       │        ├── AuthSlice.ts - 인증 상태와 테마 설정을 관리
-│       │        └── MeetingSlice.ts - Meeting 관련 알림 상태 관리
-│       ├── hooks.ts
-│       └── store.ts
+│    ├── slices
+│    │     ├── AuthSlice.ts - 인증 상태와 테마 설정을 관리
+│    │     └── MeetingSlice.ts - Meeting 관련 알림 상태 관리
+│    ├── hooks.ts
+│    └── store.ts
 │
 ├── assets	 - 이미지 관련 파일 모음
 │
 ├── components	- 재사용 가능한 컴포넌트
-│       ├── form	- 
-│       │        ├── DateField.tsx 
-│       │        ├── MeetingButton.tsx
-│       │        ├── MeetingMaximum.tsx
-│       │        ├── NameField.tsx
-│       │        └── UserField.tsx
-│       ├── themes
-│       │        ├── DarkTheme.tsx
-│       │        └── LightTheme.tsx
-│       ├── EditFlyout.tsx
-│       ├── Header.tsx
-│       └── ThemeSelector.tsx
+│    ├── form	- 
+│    │     ├── DateField.tsx 
+│    │     ├── MeetingButton.tsx
+│    │     ├── MeetingMaximum.tsx
+│    │     ├── NameField.tsx
+│    │     └── UserField.tsx
+│    ├── themes
+│    │     ├── DarkTheme.tsx
+│    │     └── LightTheme.tsx
+│    ├── EditFlyout.tsx
+│    ├── Header.tsx
+│    └── ThemeSelector.tsx
 │
 ├── hooks	- 커스텀 훅 모음
-│       ├── UseAuth.tsx
-│       ├── UseFetchUsers.tsx
-│       └── UseToast.tsx
+│    ├── UseAuth.tsx
+│    ├── UseFetchUsers.tsx
+│    └── UseToast.tsx
 │
 ├── pages	- 전체 페이지 또는 경로
-│       ├── CreateMeeting.tsx	- 채팅 생성 페이지
-│       ├── Dashboard.tsx		- 컨텐츠 선택 페이지
-│       ├── JoinMeeting.tsx	- 채팅 참여 페이지
-│       ├── Login.tsx		- 로그인 페이지
-│       ├── Meeting.tsx		- 다른 사람의 채팅 페이지
-│       ├── MyMeeting.tsx	- 내가 생성했던 채팅 목록 페이지
-│       ├── SingleMeeting.tsx	- 1:1 개인 채팅 생성 페이지
-│       └── VideoConference.tsx	- 다중 화상 채팅 생성 페이지
+│    ├── CreateMeeting.tsx	- 채팅 생성 페이지
+│    ├── Dashboard.tsx		- 컨텐츠 선택 페이지
+│    ├── JoinMeeting.tsx	- 채팅 참여 페이지
+│    ├── Login.tsx		- 로그인 페이지
+│    ├── Meeting.tsx		- 다른 사람의 채팅 페이지
+│    ├── MyMeeting.tsx	- 내가 생성했던 채팅 목록 페이지
+│    ├── SingleMeeting.tsx	- 1:1 개인 채팅 생성 페이지
+│    └── VideoConference.tsx	- 다중 화상 채팅 생성 페이지
 │
 ├── utils
-│       ├── BreadCrumbs.ts
-│       ├── FirebaseConfig.ts
-│       ├── generateMeetingId.ts
-│       └── Types.ts
+│    ├── BreadCrumbs.ts
+│    ├── FirebaseConfig.ts
+│    ├── generateMeetingId.ts
+│    └── Types.ts
 │
 ├── d.ts	- 이미지 파일 선언 및 Elastic UI의 아이콘 오류 방지
 ├── App.tsx	- 전체 앱 컴포넌트
