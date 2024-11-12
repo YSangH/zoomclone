@@ -13,6 +13,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
     "@elastic/datemath": "^5.0.3",
     "@elastic/eui": "^97.2.0",
@@ -27,11 +28,12 @@
     "moment": "^2.30.1",
     "react-router-dom": "^6.27.0",
     "redux": "^5.0.1",
-    "sort-by": "^0.0.2"
+    "sort-by": "^0.0.2",
+    "vite": "^latest"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.3",
-    "vite": "^5.4.10",
+    "vite": "^5.4.11",
     "vite-plugin-svgr": "^4.2.0"
   }
 }
