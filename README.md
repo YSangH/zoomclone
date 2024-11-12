@@ -57,6 +57,7 @@ $ npm run dev
 # 폴더 구조와 기능
 -----
 
+```
 src
 ├── app	 - 재사용 가능한 컴포넌트
 │    ├── slices
@@ -105,7 +106,7 @@ src
 ├── d.ts	- 이미지 파일 선언 및 Elastic UI의 아이콘 오류 방지
 ├── App.tsx	- 전체 앱 컴포넌트
 └── index.tsx	- 엔트리 포인트
-
+```
 
 
 
