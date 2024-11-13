@@ -57,6 +57,7 @@ $ npm run dev
 <img src="https://img.shields.io/badge/Vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white">
 <img src="https://img.shields.io/badge/VS%20Code-%23007ACC.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white">
 <img src="https://img.shields.io/badge/Redux-%23764ABC.svg?style=for-the-badge&logo=redux&logoColor=white">
+<img src="https://img.shields.io/badge/Replit-%230077B5.svg?style=for-the-badge&logo=Replit&logoColor=white">
 
 # 폴더 구조와 기능
 -----
