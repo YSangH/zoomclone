@@ -17,6 +17,13 @@ import {
 import moment from 'moment'
 import { Link } from 'react-router-dom'
 
+import { appendIconComponentCache } from '@elastic/eui/es/components/icon/icon';
+import { icon as EuiIconCopy } from '@elastic/eui/es/components/icon/assets/copy';
+
+appendIconComponentCache({
+  copy: EuiIconCopy,
+});
+
 function Meeting() {
     UseAuth();
     const userInfo = useAppSelector((zoom) => zoom.auth.userInfo);
@@ -43,21 +50,21 @@ function Meeting() {
                     setMeetings(myMeetings); 
                 }
             }
-            getUserMeetings()
+            getUserMeetings();
         }
     }, [userInfo]);
     
     const meetingColumns = [
         {
-            field: "MeetingName",
+            field: "meetingName",
             name: "Meeting Name",
         },
         {
-            field: "MeetingType", 
+            field: "meetingType", 
             name: "Meeting Type",
         },
         {
-            field: "MeetingDate",
+            field: "meetingDate",
             name: "Meeting Date",
         },
         {
@@ -87,7 +94,7 @@ function Meeting() {
             field: "MeetingId",
             name: "Copy Link",
             render: (meetingId: string) => {
-                return (<EuiCopy textToCopy={`${process.env.REACT_APP_HOST}/join/${meetingId}`}>
+                return (<EuiCopy textToCopy={`${import.meta.env.VITE_REACT_APP_HOST}/join/${meetingId}`}>
                     {(copy: any) => ( 
                         <EuiButtonIcon
                             iconType="copy"

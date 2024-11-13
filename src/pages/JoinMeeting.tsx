@@ -107,8 +107,8 @@ export default function JoinMeeting() {
             scenario: {
                 mode: ZegoUIKitPrebuilt.VideoConference,
             },
-        })
-    }
+        });
+    };
 
 
     return (

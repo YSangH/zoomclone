@@ -24,6 +24,8 @@ import { icon as EuiIconCalendar} from '@elastic/eui/es/components/icon/assets/c
 import { icon as EuiIconSortLeft} from '@elastic/eui/es/components/icon/assets/sortLeft';
 import { icon as EuiIconSortRight } from '@elastic/eui/es/components/icon/assets/sortRight';
 import { icon as EuiIconWarning } from '@elastic/eui/es/components/icon/assets/warning';
+import { icon as EuiIconEmpty } from '@elastic/eui/es/components/icon/assets/empty';
+import { icon as EuiIconCross } from '@elastic/eui/es/components/icon/assets/cross';
 import UseToast from "../hooks/UseToast";
 
 // Elastic UI 아이콘 적용
@@ -33,6 +35,8 @@ appendIconComponentCache({
   sortLeft: EuiIconSortLeft,
   sortRight: EuiIconSortRight,
   warning: EuiIconWarning,
+  empty: EuiIconEmpty,
+  cross: EuiIconCross,
 });
 
 function SingleMeeting() {
