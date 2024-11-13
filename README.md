@@ -76,30 +76,30 @@ src
 ├── app	 - 재사용 가능한 컴포넌트
 │    ├── slices  - 애플리케이션의 특정 상태를 관리
 │    │     ├── AuthSlice.ts - 인증 상태와 테마 설정을 관리
-│    │     └── MeetingSlice.ts - Meeting 관련 알림 상태 관리
-│    ├── hooks.ts
-│    └── store.ts
+│    │     └── MeetingSlice.ts  - Meeting 관련 알림 상태 관리
+│    ├── hooks.ts   - React-Redux 커스텀 훅을 정의하는 파일
+│    └── store.ts   - Redux 스토어를 설정하는 파일
 │
 ├── assets	 - 이미지 관련 파일 모음
 │
-├── components	- 재사용 가능한 컴포넌트
-│    ├── form	-
-│    │     ├── DateField.tsx
-│    │     ├── MeetingButton.tsx
-│    │     ├── MeetingMaximum.tsx
-│    │     ├── NameField.tsx
-│    │     └── UserField.tsx
-│    ├── themes
-│    │     ├── DarkTheme.tsx
-│    │     └── LightTheme.tsx
-│    ├── EditFlyout.tsx
-│    ├── Header.tsx
-│    └── ThemeSelector.tsx
+├── components	- 컴포넌트 모음
+│    ├── form	-   폼 관련 컴포넌트 모음
+│    │     ├── DateField.tsx    - 채팅 생성 날짜 필드 컴포넌트
+│    │     ├── MeetingButton.tsx    - 채팅 버튼 컴포넌트
+│    │     ├── MeetingMaximum.tsx   - 채팅 최대 인원 컴포넌트
+│    │     ├── NameField.tsx    - 채팅 이름 필드 컴포넌트
+│    │     └── UserField.tsx    - 유저 입력 필드 컴포넌트
+│    ├── themes - 테마 관련 컴포넌트
+│    │     ├── DarkTheme.tsx    - 다크 테마 컴포넌트
+│    │     └── LightTheme.tsx   - 라이트 테마 컴포넌트
+│    ├── EditFlyout.tsx - 채팅방 수정 컴포넌트
+│    ├── Header.tsx - 헤더영역 컴포넌트
+│    └── ThemeSelector.tsx  - 테마 전환 컴포넌트
 │
 ├── hooks	- 커스텀 훅 모음
-│    ├── UseAuth.tsx
-│    ├── UseFetchUsers.tsx
-│    └── UseToast.tsx
+│    ├── UseAuth.tsx    - 사용자 인증 상태 관리 커스텀 훅
+│    ├── UseFetchUsers.tsx  - 다른 사용자들의 데이터를 반환하는 커스텀 훅
+│    └── UseToast.tsx   - 토스트 알림을 생성하고 관리하는 커스텀 훅
 │
 ├── pages	- 전체 페이지 또는 경로
 │    ├── CreateMeeting.tsx	- 채팅 생성 페이지
@@ -111,13 +111,14 @@ src
 │    ├── SingleMeeting.tsx	- 1:1 개인 채팅 생성 페이지
 │    └── VideoConference.tsx	- 다중 화상 채팅 생성 페이지
 │
-├── utils
-│    ├── BreadCrumbs.ts
-│    ├── FirebaseConfig.ts
-│    ├── generateMeetingId.ts
-│    └── Types.ts
+├── utils   - 유틸 및 재사용 가능 함수 모음
+│    ├── BreadCrumbs.ts - 브레드크럼 네비게이션을 설정하는 함수
+│    ├── FirebaseConfig.ts  - firebase에 대한 설정
+│    ├── generateMeetingId.ts   - 채팅방 생성시 해당하는 ID를 부여
+│    └── Types.ts   - TypeScript 인터페이스 및 타입 선언
 │
-├── d.ts	- 이미지 파일 선언 및 Elastic UI의 아이콘 오류 방지
+├── d.ts	- 이미지 파일 선언 및 Elastic UI의 아이콘 오류 방지 파일
+├── vite-env.d.ts   - Meeting.Tsx의 import.meta.env 오류 방지 파일
 ├── App.tsx	- 전체 앱 컴포넌트
 └── index.tsx	- 엔트리 포인트
 ```
