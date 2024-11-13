@@ -3,7 +3,7 @@
 ## 개요
 ------
 * 다크/라이트 테마 전환
-* 구글 로그인 기능
+* Firebase를 이용한 실시간 인증과 구글 로그인 기능
 * React + Vite + Typescript 구성
 * Elastic UI를 이용한 인터페이스
 * ZegoCloud를 이용한 화상채팅
