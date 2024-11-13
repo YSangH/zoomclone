@@ -111,3 +111,7 @@ src
 ├── App.tsx	- 전체 앱 컴포넌트
 └── index.tsx	- 엔트리 포인트
 ```
+
+# Troubleshooting
+-----
+[click](https://ysh0129.tistory.com/category/TroubleShooting)
