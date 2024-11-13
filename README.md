@@ -65,7 +65,7 @@ $ npm run dev
 ```
 src
 ├── app	 - 재사용 가능한 컴포넌트
-│    ├── slices
+│    ├── slices  - 애플리케이션의 특정 상태를 관리
 │    │     ├── AuthSlice.ts - 인증 상태와 테마 설정을 관리
 │    │     └── MeetingSlice.ts - Meeting 관련 알림 상태 관리
 │    ├── hooks.ts
