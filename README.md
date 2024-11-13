@@ -114,4 +114,4 @@ src
 
 # Troubleshooting
 -----
-[click](https://ysh0129.tistory.com/category/TroubleShooting)
+[click](https://ysh0129.tistory.com/category/TroubleShooting)트러블 슈팅 해결 과정과 방안
