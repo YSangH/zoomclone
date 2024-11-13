@@ -6,14 +6,15 @@
 * 구글 로그인 기능
 * React + Vite + Typescript 구성
 * Elastic UI를 이용한 인터페이스
-* 1:1 채팅방, 화상채팅방(스위치 전환으로 다중) 생성
+* ZegoCloud를 이용한 화상채팅
 * 전체 채팅방 목록
 * 자신이 생성한 채팅방 목록
 
 
 ## How To Use
 ------
-```bash
+```
+bash
 # 레포지토리 복사
 $ git clone https://github.com/YSangH/zoomclone.git
 
