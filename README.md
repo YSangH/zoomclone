@@ -127,4 +127,4 @@ src
 
 ---
 
-[click](https://ysh0129.tistory.com/category/TroubleShooting)트러블 슈팅 해결 과정과 방안
+[click] (https://ysh0129.tistory.com/48)트러블 슈팅 해결 과정과 방안
